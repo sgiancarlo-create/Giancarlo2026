@@ -1,0 +1,15 @@
+// Seleciona o botão de sincronização do ecossistema
+const syncBtn = document.getElementById('syncBtn');
+
+// Adiciona o evento de clique estilo painel de controle da NERV
+syncBtn.addEventListener('click', () => {
+    // Atualiza os textos e estilos do botão em tempo real
+    syncBtn.innerText = "TAXA DE SINCRONIA: 100%";
+    syncBtn.style.backgroundColor = "var(--eva-green)";
+    syncBtn.style.color = "var(--eva-black)";
+    syncBtn.style.borderColor = "var(--eva-green)";
+    syncBtn.style.boxShadow = "0 0 25px var(--eva-green)";
+    
+    // Alerta de confirmação do sistema
+    alert("Sistema Atualizado: Integração entre Agro e Meio Ambiente operando em capacidade máxima estável.");
+});
