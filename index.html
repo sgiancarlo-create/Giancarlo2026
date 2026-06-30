@@ -19,7 +19,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Courier New', Courier, monospace; /* Fonte estilo terminal/computador */
+            font-family: 'Courier New', Courier, monospace;
         }
 
         body {
@@ -67,7 +67,7 @@
             animation: blink 1.5s infinite;
         }
 
-        /* Layout em Linhas de Dados Intercaladas (Estilo Painel Lateral do EVA) */
+        /* Layout em Linhas de Dados Intercaladas (Estilo Painel do EVA) */
         .hud-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -76,13 +76,8 @@
             align-items: center;
         }
 
-        /* Inverte a ordem no segundo bloco para criar o zigue-zague de monitoramento */
-        .hud-row.reverse {
-            grid-template-columns: 1fr 1fr;
-        }
-
         @media (max-width: 768px) {
-            .hud-row, .hud-row.reverse { grid-template-columns: 1fr; }
+            .hud-row { grid-template-columns: 1fr !important; }
         }
 
         /* Bloco de Texto Técnico */
@@ -210,21 +205,33 @@
         </div>
     </div>
 
-    <div class="hud-row reverse">
-        <div class="display-box">
+    <div class="hud-row" style="grid-template-columns: 1fr 1fr;">
+        <div class="display-box" style="grid-column: calc(1); @media (max-width: 768px) { grid-column: auto; }">
             <div class="corner-tag" style="background: var(--eva-purple); color: var(--eva-green);">VISUAL_FEED_02</div>
             <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=500&q=60" alt="Campo Tecnológico">
             <div class="scanlines"></div>
         </div>
-        <div class="data-box" style="border-left-color: var(--eva-purple); border-right-left: 6px solid var(--eva-purple);">
+        <div class="data-box" style="border-left-color: var(--eva-purple);">
             <h2>[SETOR_02] AGRONEGÓCIO DE ESCALA</h2>
             <p>POTÊNCIA TECNOLÓGICA OPERANTE. Alta capacidade produtiva em nível global. Utilização de dados de satélite e inteligência artificial para otimização de recursos hídricos. Objetivo: Redução máxima de impacto ambiental por tonelada produzida.</p>
         </div>
     </div>
 
+    <div class="hud-row">
+        <div class="data-box" style="border-left-color: var(--eva-green);">
+            <h2>[SETOR_03] MATRIZ SUSTENTÁVEL</h2>
+            <p>CONVERGÊNCIA E EQUILÍBRIO BIO-TECNOLÓGICO. Monitoramento de áreas de preservação permanente (APPs), rotação de culturas avançada e captura de carbono. A sincronia perfeita para manter a produção forte sem esgotar os recursos do planeta.</p>
+        </div>
+        <div class="display-box">
+            <div class="corner-tag" style="background: var(--eva-green); color: #000;">VISUAL_FEED_03</div>
+            <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=500&q=60" alt="Preservação Ambiental">
+            <div class="scanlines"></div>
+        </div>
+    </div>
+
     <div class="core-section">
         <h3>CONVERGÊNCIA: EQUILÍBRIO AMBIENTAL</h3>
-        <p>A fusão dos dois ecossistemas agrícolas garante a manutenção estável do bioma terrestre.</p>
+        <p>A fusão dos três ecossistemas agrícolas garante a manutenção estável do bioma terrestre.</p>
         <button class="eva-btn" id="syncBtn">OTIMIZAR MATRIZ AMBIENTAL</button>
     </div>
 
@@ -235,7 +242,7 @@
             syncBtn.style.backgroundColor = "var(--eva-green)";
             syncBtn.style.color = "var(--eva-black)";
             syncBtn.style.borderColor = "var(--eva-green)";
-            alert("Sincronização concluída. Produção e Meio Ambiente operando em equilíbrio harmônico.");
+            alert("Sincronização concluída. Todos os 3 setores operando em equilíbrio harmônico com o meio ambiente.");
         });
     </script>
 </body>
